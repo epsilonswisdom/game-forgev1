@@ -1,8 +1,8 @@
 import { Router } from 'express'
-
+import * as gameCtrl from '../controllers/games.js'
 const router = Router()
 
-router.get('/')
+router.get('/', gameCtrl.index)
 
 
 export {

@@ -15,7 +15,7 @@ const gameSchema = new Schema({
 
 })
 
-const Game = mongoose.model('Game', tacoShema)
+const Game = mongoose.model('Game', gameShema)
 
 export {
     Game
