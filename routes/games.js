@@ -4,6 +4,8 @@ const router = Router()
 
 router.get('/', gameCtrl.index)
 
+router.post('/', gameCtrl.create)
+
 
 export {
   router
