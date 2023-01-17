@@ -11,6 +11,8 @@ router.post('/', gameCtrl.create)
 
 router.post('/', isLoggedIn, gameCtrl.create)
 
+router.get('/:id/edit', isLoggedIn, gameCtrl.edit)
+
 router.patch('/:id/flip-playable', isLoggedIn, gameCtrl.flipPlayable)
 
 

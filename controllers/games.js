@@ -58,9 +58,24 @@ function flipPlayable(req, res) {
   })
 }
 
+function edit(req, res) {
+  Game.findById(req.params.id)
+  .then(game => {
+    res.render('games/edit', {
+      game,
+      title: "edit"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
+
 export {
   index,
   create,
   show,
   flipPlayable,
+  edit,
 }

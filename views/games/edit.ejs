@@ -1,0 +1,28 @@
+<%- include('./partials/html-head') %>
+<%- include('./partials/nav') %>
+
+<section>
+  <h1> Edit the Game title!</h1>
+  <form action="/games/<%= game._id %>?_method=PUT" method="POST">
+   <label>
+    Name:
+    <input
+      type="text"
+      name="name"
+      value="<%= game.name %>"
+      autocomplete="off"
+    >
+   </label>
+  <label>
+    Playable?
+    <input
+      type="checkbox"
+      name="playable"
+      <%= game.playable ? "checked" : ""  %>
+    >     
+  </label>
+  <button type="submit">Edit the Game</button>
+  </form>
+</section>
+
+<%- include('./partials/footer') %>
