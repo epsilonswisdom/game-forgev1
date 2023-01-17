@@ -7,6 +7,7 @@ const gameSchema = new Schema({
   platform: String,
   publisher: String,
   yearrelease: Number,
+  
   }, { 
   timestamps: true
  // To be added later when you build the other models
@@ -15,7 +16,7 @@ const gameSchema = new Schema({
 
 })
 
-const Game = mongoose.model('Game', gameShema)
+const Game = mongoose.model('Game', gameSchema)
 
 export {
     Game

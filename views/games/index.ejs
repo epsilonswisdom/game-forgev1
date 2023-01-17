@@ -1,0 +1,28 @@
+<%- include('../partials/html-head') %> 
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Games!</h1>
+  <% if (user) { %>
+  <h2>Add a Game🎮</h2>
+  <form action="/games" method="POST">
+    <label>
+      Name:
+      <input type="text" name="name" autocomplete="off">
+    </label>
+    <label>
+      Playable?
+      <input type="checkbox" name="tasty">
+    </label>
+    <button type="submit">Save your Game?</button>
+  </form>
+  <% } %> 
+  <ul>
+    <% games.forEach(game => { %>
+      <li>🎮 <%= game.name %> is <%= game.playable ? 'playable' : 'playable' %></li>
+    <% }) %>
+  </ul>
+  
+</section>
+
+<%- include('../partials/footer') %> 
