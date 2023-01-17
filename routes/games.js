@@ -11,6 +11,8 @@ router.post('/', gameCtrl.create)
 
 router.post('/', isLoggedIn, gameCtrl.create)
 
+router.patch('/:id/flip-playable', isLoggedIn, gameCtrl.flipPlayable)
+
 
 export {
   router

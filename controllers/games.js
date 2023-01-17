@@ -28,7 +28,39 @@ function create(req, res) {
   })
 }
 
+function show(req, res) {
+  Game.findById(req.params.id)
+  .populate("owner")
+  .then(game => {
+    res.render('games/show', {
+      game,
+      title: "🎮 show"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
+
+function flipPlayable(req, res) {
+  Game.findById(req.params.id)
+  .then(game => {
+    game.playable = !game.playable
+    game.save()
+    .then(()=> {
+      res.redirect(`/games/${game._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
+
 export {
   index,
-  create, 
+  create,
+  show,
+  flipPlayable,
 }

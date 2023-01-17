@@ -1,0 +1,10 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <p> From the mind of <%= game.owner.name %>... </p>
+  <h1><%= game.name %></h1>
+  <h2> This videogame is <%= game.playable ? 'playable' : 'not playable'  %> </h2>
+</section>
+
+<%- include('../partials/footer') %> 
