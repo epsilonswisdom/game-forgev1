@@ -5,6 +5,8 @@ const router = Router()
 
 router.get('/', gameCtrl.index)
 
+router.get('/:id', gameCtrl.show)
+
 router.post('/', gameCtrl.create)
 
 router.post('/', isLoggedIn, gameCtrl.create)
