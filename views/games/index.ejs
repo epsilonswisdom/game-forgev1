@@ -19,10 +19,12 @@
   <% } %> 
   <ul>
     <% games.forEach(game => { %>
-      <li>🎮 <%= game.name %> is <%= game.playable ? 'playable' : 'playable' %></li>
+      <li>
+        🎮
+        <a href="/games/ <%= game._id %>"><%= game.name %></a>
+        is <%= game.playable ? 'playable' : 'playable' %></li>
     <% }) %>
   </ul>
-  
 </section>
 
 <%- include('../partials/footer') %> 
