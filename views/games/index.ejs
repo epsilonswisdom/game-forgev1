@@ -1,31 +1,75 @@
 <%- include('../partials/html-head') %> 
 <%- include('../partials/nav') %>
 
-<section>
-  <h1>Games!</h1>
-  <% if (user) { %>
-  <h2>Add a Game🎮</h2>
-  <form action="/games" method="POST">
-    <label>
-      Game Title:
-      <input type="text" name="title" autocomplete="off">
-    </label>
-    <label>
-      Playable?
-      <input type="checkbox" name="playable">
-    </label>
-    <button type="submit">Save your Game?</button>
-  </form>
-  <% } %>
-  <h2>All Games</h2> 
-  <ul>
-    <% games.forEach(game => { %>
-      <li>
-        🎮
-        <a href="/games/<%= game._id %>"><%= game.title %></a>
-        is <%= game.playable ? 'playable' : 'playable' %></li>
-    <% }) %>
-  </ul>
-</section>
-
+<main>
+  <h1>Games</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Platform</th>
+        <th>Publisher</th>
+        <th>Year Released</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%# Oh hey, this is an ejs comment! It starts with a # %>
+      <% games.forEach(game => { %>
+        <tr>
+          <td><%= game.title %></td>
+          <td><%= game.platform %></td>
+          <td><%= game.publisher %></td>
+          <td><%= game.yearrelease %></td>
+          <td><button><a href="/games/<%= game._id %>">DETAILS</a></button></td>
+          <td>
+            <form 
+              action="/games/<%= game._id %>?_method=DELETE"
+              method="POST"
+            >
+              <button>X</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <section>
+    <h1>Games!</h1>
+    <% if (user) { %>
+    <h2>Add a Game🎮</h2>
+    <form action="/games" method="POST">
+      <label>
+        Game Title:
+        <input type="text" name="title"  autocomplete="off">
+      </label>
+      <label>
+        Platform:
+        <input type="text" name="platform" autocomplete="off">
+      </label>
+      <label>
+        Publisher
+        <input type="text" name="publisher" autocomplete="off">
+      </label>
+      <label>
+        Release Date
+        <input type="date" name="yearreleased" autocomplete="off">
+      </label>
+      <label>
+        Playable?
+        <input type="checkbox" name="playable">
+      </label>
+      <button type="submit">Save your Game?</button>
+    </form>
+    <% } %>
+    <h2>All Games</h2> 
+    <ul>
+      <% games.forEach(game => { %>
+        <li>
+          🎮
+          <a href="/games/<%= game._id %>"><%= game.title %></a>
+          is <%= game.playable ? 'playable' : 'playable' %></li>
+      <% }) %>
+    </ul>
+  </section>
+</main>
 <%- include('../partials/footer') %> 
