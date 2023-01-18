@@ -1,39 +1,6 @@
 <%- include('../partials/html-head') %> 
 <%- include('../partials/nav') %>
 
-<main>
-  <h1>Games</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Platform</th>
-        <th>Publisher</th>
-        <th>Year Released</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%# Oh hey, this is an ejs comment! It starts with a # %>
-      <% games.forEach(game => { %>
-        <tr>
-          <td><%= game.title %></td>
-          <td><%= game.platform %></td>
-          <td><%= game.publisher %></td>
-          <td><%= game.yearrelease %></td>
-          <td><button><a href="/games/<%= game._id %>">DETAILS</a></button></td>
-          <td>
-            <form 
-              action="/games/<%= game._id %>?_method=DELETE"
-              method="POST"
-            >
-              <button>X</button>
-            </form>
-          </td>
-        </tr>
-      <% }) %>
-    </tbody>
-  </table>
-  <section>
     <h1>Games!</h1>
     <% if (user) { %>
     <h2>Add a Game🎮</h2>
@@ -58,7 +25,7 @@
         Playable?
         <input type="checkbox" name="playable">
       </label>
-      <button type="submit">Save your Game?</button>
+      <button type="submit">Navi asks Save?</button>
     </form>
     <% } %>
     <h2>All Games</h2> 
