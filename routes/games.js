@@ -17,6 +17,8 @@ router.patch('/:id/flip-playable', isLoggedIn, gameCtrl.flipPlayable)
 
 router.put('/:id', isLoggedIn, gameCtrl.update)
 
+router.delete('/:id', isLoggedIn, gameCtrl.delete)
+
 
 export {
   router

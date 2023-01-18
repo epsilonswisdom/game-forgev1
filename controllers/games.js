@@ -91,6 +91,24 @@ function update(req, res) {
   })
 }
 
+function deleteGame(req, res) {
+  Game.findById(req.params.id)
+  .then(game => {
+    if (game.owner.equals(req.user.profile._id)) {
+      game.delete()
+      .then(() => {
+        res.redirect('/games')
+      })
+    } else {
+      throw new Error (' Not Authorized')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
+
 export {
   index,
   create,
@@ -98,4 +116,5 @@ export {
   flipPlayable,
   edit,
   update,
+  deleteGame as delete,
 }
