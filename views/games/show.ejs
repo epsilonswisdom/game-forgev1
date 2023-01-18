@@ -2,11 +2,11 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <p> From the mind of <%= game.owner.title %>... </p>
+  <p> From the mind of <%= game.owner.name %>... </p>
   <h1><%= game.title %></h1>
   <h2> Platform: <%= game.platform  %> </h2>
   <h2> Publisher: <%= game.publisher %> </h2>
-  <h2> Release Date: <% game.yearrelease %> </h2>
+  <h2> Release Date: <% game.number %> </h2>
   <% if (user) { %>
     <form action="/games/<%= game._id %>/flip-playable?_method=PATCH" method="POST">
       <button class="btn" type="submit">
