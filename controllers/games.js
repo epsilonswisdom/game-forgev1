@@ -1,11 +1,13 @@
 import { Game } from "../models/game.js";
+//import { Performer } from ".."
 
 function index(req , res) {
   Game.find({})
   .then(games => {
     res.render("games/index", {
       games,
-      title : "games"
+      title : "games",
+      user: req.user ? req.user : null
     })
   })
   .catch(err => {

@@ -8,7 +8,7 @@
   <form action="/games" method="POST">
     <label>
       Game Title:
-      <input type="text" name="Game" autocomplete="off">
+      <input type="text" name="title" autocomplete="off">
     </label>
     <label>
       Playable?
@@ -16,12 +16,13 @@
     </label>
     <button type="submit">Save your Game?</button>
   </form>
-  <% } %> 
+  <% } %>
+  <h2>All Games</h2> 
   <ul>
     <% games.forEach(game => { %>
       <li>
         🎮
-        <a href="/games/ <%= game._id %>"><%= game.name %></a>
+        <a href="/games/<%= game._id %>"><%= game.title %></a>
         is <%= game.playable ? 'playable' : 'playable' %></li>
     <% }) %>
   </ul>
