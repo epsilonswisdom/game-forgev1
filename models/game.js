@@ -6,7 +6,7 @@ const gameSchema = new Schema({
   title: String,
   platform: String,
   publisher: String,
-  yearrelease: Number,
+  yearrelease: {type: Number, min:1970} ,
   owner: { type: Schema.Types.ObjectId, ref: "Profile" }
   }, { 
   timestamps: true
