@@ -7,13 +7,15 @@ router.get('/', gameCtrl.index)
 
 router.get('/:id', gameCtrl.show)
 
+router.get('/:id/edit', isLoggedIn, gameCtrl.edit)
+
 router.post('/', gameCtrl.create)
 
 router.post('/', isLoggedIn, gameCtrl.create)
 
-router.get('/:id/edit', isLoggedIn, gameCtrl.edit)
-
 router.patch('/:id/flip-playable', isLoggedIn, gameCtrl.flipPlayable)
+
+router.put('/:id', isLoggedIn, gameCtrl.update)
 
 
 export {

@@ -72,10 +72,30 @@ function edit(req, res) {
   })
 }
 
+function update(req, res) {
+  Game.findById(req.params.id)
+  .then(game => {
+    if (game.owner.equals(req.user.profile._id)) {
+      req.body.playable = !!req.body.playable
+      game.updateOne(req.body)
+      .then(()=>{
+        res.redirect(`/games/${game._id}`)
+      })
+    } else {
+      throw new Error(' Not Authorized')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
+
 export {
   index,
   create,
   show,
   flipPlayable,
   edit,
+  update,
 }
