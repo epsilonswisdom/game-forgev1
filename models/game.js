@@ -7,7 +7,7 @@ const gameSchema = new Schema({
   platform: String,
   publisher: String,
   yearrelease: Number,
-  
+  owner: { type: Schema.Types.ObjectId, ref: "Profile" }
   }, { 
   timestamps: true
  // To be added later when you build the other models
