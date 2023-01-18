@@ -2,16 +2,33 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <h1> Edit the Game title!</h1>
+  <h1>Made a Mistake No Problem</h1>
+  <h2> Edit the Game Info!</h2>
   <form action="/games/<%= game._id %>?_method=PUT" method="POST">
    <label>
-    Name:
+    Game:
     <input
       type="text"
       name="title"
-      value="<%= game.name %>"
+      value="<%= game.title %>"
       autocomplete="off"
     >
+   </label>
+   <label>
+    Platform:
+    <input
+      type="text"
+      name="platform"
+      value="<%= game.platform %>"
+      >
+   </label>
+   <label>
+    Publisher:
+    <input
+      type="text"
+      name="publisher"
+      value="<%= game.publisher %>"
+      >
    </label>
   <label>
     Playable?

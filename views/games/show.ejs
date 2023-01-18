@@ -2,23 +2,24 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <p> From the mind of <%= game.owner.name %>... </p>
-  <h1><%= game.name %></h1>
-  <h2> This videogame is <%= game.playable ? 'playable' : 'not playable'  %> </h2>
+  <p> From the mind of <%= game.owner.title %>... </p>
+  <h1><%= game.title %></h1>
+  <h2> Platform: <%= game.platform  %> </h2>
+  <h2> Publisher: <%= game.publisher %> </h2>
+  <h2> Release Date: <% game.yearrelease %> </h2>
   <% if (user) { %>
-  <form action="/games/<%= game._id %>/flip-playable?_method=PATCH" method="POST">
-    <button class="btn" type="submit">
-      Make game <%= game.playable ? 'not playable' : 'playable' %>
-    </button>
-  </form>
-<% if (game.owner.equals(user?.profile._id)) { %>
-  <a href="/games/<%= game._id %>/edit">
-    <button class="btn"> Edit the Game Title</button>
-  </a>
-  <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
-    <button class="btn" type="submit">Delete the Game</button>
-  </form>
-<% }} %>
-</section>
-
+    <form action="/games/<%= game._id %>/flip-playable?_method=PATCH" method="POST">
+      <button class="btn" type="submit">
+        Make game <%= game.playable ? 'not playable' : 'playable' %>
+      </button>
+    </form>
+    <% if (game.owner.equals(user?.profile._id)) { %>
+      <a href="/games/<%= game._id %>/edit">
+        <button class="btn"> Edit the Game Title</button>
+      </a>
+      <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
+        <button class="btn" type="submit">Delete the Game</button>
+      </form>
+      <% }} %>
+    </section>
 <%- include('../partials/footer') %> 
