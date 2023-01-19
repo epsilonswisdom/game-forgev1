@@ -1,17 +1,26 @@
 <%- include('../partials/html-head') %> 
 <%- include('../partials/nav') %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profiles</title>
-</head>
-<body>
-  
-</body>
-</html>
+
+<section>
+  <h1>Profile</h1>
+  <% if (user) { %> 
+  <h2> All Profiles</h2>
+  <form action="/profiles" method="POST">
+    <label>
+      Name:
+      <input type="text" name="name" autocomplete="off">
+    </label>
+    <label>
+      Console or PC?
+      <input type="text"
+    </label>
+  </form>
+  <ul>
+    <% profiles.forEach(profile => {
+      <li> <%= profile.name %></li>
+    }) %> 
+  </ul>
+</section>
 
 
 <%- include('../partials/footer') %> 

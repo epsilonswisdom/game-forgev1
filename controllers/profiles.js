@@ -6,7 +6,7 @@ function index(req , res) {
   .then(profiles => {
     res.render("profiles/index", {
       profiles,
-      
+      title: "profile"
 
     })
   })
@@ -18,7 +18,7 @@ function index(req , res) {
 
 function show(req, res) {
   Profile.findById(req.params.id)
-  .populate('')
+  .populate('profiles')
   .then(profile => {
     const isSelf = profile._id.equals(req.user.profile._id)
     Game.find({_id:{$nin: profile.watchlist}})
