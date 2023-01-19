@@ -12,15 +12,12 @@
     </label>
     <label>
       Console or PC?
-      <input type="text"
+      <input type="text" name="profile">
     </label>
+    <button type="submit">Add Profile</button>
   </form>
-  <ul>
-    <% profiles.forEach(profile => {
-      <li> <%= profile.name %></li>
-    }) %> 
-  </ul>
 </section>
+<% } %>
 
 
 <%- include('../partials/footer') %> 
