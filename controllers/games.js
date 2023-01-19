@@ -1,5 +1,6 @@
-import { Game } from "../models/game.js";
-//import { Performer } from ".."
+import { Router } from "express"
+import { Game } from "../models/game.js"
+import { Profile } from "../models/profile.js"
 
 function index(req , res) {
   Game.find({})
