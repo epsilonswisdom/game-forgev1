@@ -1,11 +1,12 @@
 import { Profile } from "../models/profile.js"
+
 import { Game } from "../models/game.js"
 
 function index(req , res) {
   Profile.find({})
-  .then(profiles => {
+  .then(profile => {
     res.render("profiles/index", {
-      profiles,
+      profile,
       title: "profile"
 
     })
@@ -101,7 +102,7 @@ function deleteProfile(req, res) {
 function addComment(req, res) {
   Profile.findById(req.params.id)
   .then(profile => {
-    req.body.commenter = req.userr.profile._id
+    req.body.commenter = req.user.profile._id
     profile.comments.push(req.body)
     profile.save()
     .then(()=> {

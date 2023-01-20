@@ -3,7 +3,7 @@
 
 <section>
   <h1>Profile</h1>
-  <% profiles.forEach(profile => { %>
+  <% profile.forEach(profile => { %>
     <li>
       <a href='/profiles/<%= profile._id %>'><%= profile.name %></a>
       </li>
