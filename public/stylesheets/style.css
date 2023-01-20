@@ -12,6 +12,8 @@ html {
 }
 
 body {
+  background-image: url(https://i.imgur.com/nuocoVf.jpg);
+  background: cover;
   background-color: #ffffff;
   color: #000207;
   /* Use a system font, if none are available use any found sans-sarif font */
@@ -21,7 +23,7 @@ body {
 }
 
 nav {
-  background-color: #f6f6f6;
+  background-image: url(https://i.imgur.com/2BIDlC4.jpg);
   color: #1a1a1a;
   display: flex;
   align-items: center;
@@ -30,6 +32,12 @@ nav {
   justify-content: space-between;
 }
 
+.nav-link{
+  border-color: #f8f2f2;
+  font-weight: bolder;
+  
+
+}
 
 main {
   display: flex;
@@ -40,4 +48,37 @@ main {
 
 .right {
   margin-left: auto;
+}
+
+button{
+  margin-top: 10px;
+  border-radius: 10px;
+  background: linear-gradient(45deg,blue,green);
+  color: aliceblue;
+  padding: 8px;
+  font-family: fantasy;
+  font-size: 24px;
+}
+
+label{
+  color: rgb(240, 234, 241);
+  font-weight: bolder;
+}
+
+ul{
+  color: rgba(252, 253, 253, 0.986);
+  font-weight: bold;
+}
+
+a{
+  color: #fdfeff;
+  font-weight: bold;
+}
+
+h1{
+  color: #f8f2f2;
+}
+
+h2{
+  color: #f8f2f2;
 }

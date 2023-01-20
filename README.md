@@ -1,3 +1,7 @@
+<img src="./assets/Screenshot_20230120_110757.png">
+
+
+
 # ***Manny’s Exclusive Gamer Blog*** 
 ***Welcome to GameForge*** (https://gamer-forge.fly.dev/)
 
