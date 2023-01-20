@@ -62,10 +62,29 @@ function edit(req, res) {
   })
 }
 
+function update(req, res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    if (profile.owner.equals(req.user.profile._id)) {
+      profile.updateOne(req.body)
+      .then(()=> {
+        res.redirect(`/profiles/${profile._id}`)
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profiles')
+  })
+}
+
 export {
   index,
   show,
   create,
   edit,
+  update,
 
 }
