@@ -18,12 +18,8 @@ const gameSchema = new Schema({
   publisher: String,
   yearrelease: {type: Number, min:1970} ,
   owner: { type: Schema.Types.ObjectId, ref: "Profile" },
-  reviews: [gameReviewSchema],
   }, { 
   timestamps: true
- // To be added later when you build the other models
-  //imageurl: [{ObjectId, ref:'Profile'}],
-  //reviews: [{ObjectId, ref:GameReview}],
 
 })
 
