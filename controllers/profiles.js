@@ -17,6 +17,19 @@ function index(req , res) {
   })
 }
 
+
+function create(req , res) {
+  req.body.owner = req.user.profile._id
+  Profile.create(req.body)
+  .then(profile => {
+    res.redirect('/profiles')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profiles')
+  })
+}
+
 function show(req, res) {
   Profile.findById(req.params.id)
   .populate('profiles')
@@ -36,19 +49,6 @@ function show(req, res) {
     res.redirect("/")
   })
 }
-
-function create(req , res) {
-  req.body.owner = req.user.profile._id
-  Profile.create(req.body)
-  .then(profile => {
-    res.redirect('/profiles')
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/profiles')
-  })
-}
-
 function edit(req, res) {
   Profile.findById(req.params.id)
   .then(profile => {
