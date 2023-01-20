@@ -136,6 +136,30 @@ function showComment(req, res) {
   })
 }
 
+function updateComment(req, res) {
+  Profile.findById(req.params.tacoId)
+  .then(profile => {
+    const comment = profile.comments.id(req.params.commentId)
+    if (comment.commenter.equals(req.user.profile._id)) {
+      comment.set(req.body)
+      profile.save()
+      .then(() => {
+        res.redirect(`/profiles/${profile._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/profiles')
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profiles')
+  })
+}
+
 export {
   index,
   show,
@@ -145,4 +169,5 @@ export {
   deleteProfile as delete,
   addComment,
   showComment,
+  updateComment,
 }

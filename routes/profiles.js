@@ -16,6 +16,8 @@ router.get('/:id', profileCtrl.show)
 
 router.put('/:id', isLoggedIn, profileCtrl.update)
 
+router.put('/:profileId/comments/:commentId', isLoggedIn, profileCtrl.updateComment)
+
 router.post('/', profileCtrl.create)
 
 router.post('/:id/comments',isLoggedIn, profileCtrl.addComment)
