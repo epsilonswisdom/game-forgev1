@@ -36,8 +36,21 @@ function show(req, res) {
   })
 }
 
+function create(req , res) {
+  req.body.owner = req.user.profile._id
+  Profile.create(req.body)
+  .then(profile => {
+    res.redirect('/profiles')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profiles')
+  })
+}
+
 export {
   index,
   show,
+  create,
 
 }

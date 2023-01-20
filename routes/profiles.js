@@ -7,6 +7,10 @@ const router = Router()
 
 router.get('/', profileCtrl.index)
 
+router.get('/:id', profileCtrl.show)
+
+router.post('/', profileCtrl.create)
+
 export {
   router
 }
