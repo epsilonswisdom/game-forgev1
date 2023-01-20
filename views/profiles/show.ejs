@@ -11,8 +11,14 @@
     <form action="/profiles/<%= profile._id %>?_method=DELETE" method="POST">
       <button class="dtlbtn" type="submit">Delete</button>
     </form>  
-  <% } %> 
-
+  <% } %>
+  <h2>Comments</h2>
+  <% if (user) { %>
+  <form action="/profiles/<%= profile._id %>/comments" method="POST">
+    <textarea name="content"></textarea><br>
+    <button>Add Comment</button>
+  </form> 
+  <% } %>
 </section>
 
 <%- include('../partials/footer') %>
