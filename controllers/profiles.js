@@ -80,11 +80,30 @@ function update(req, res) {
   })
 }
 
+function deleteProfile(req, res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    if (profile.owner.equals(req.user.profile._id)) {
+      profile.delete()
+      .then(() => {
+        res.redirect('/profiles')
+      })
+    } else {
+      throw new Error ('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profiles')
+  })
+}
+
 export {
   index,
   show,
   create,
   edit,
   update,
+  deleteProfile as delete,
 
 }

@@ -15,6 +15,8 @@ router.put('/:id', isLoggedIn, profileCtrl.update)
 
 router.post('/', profileCtrl.create)
 
+router.delete('/:id', isLoggedIn, profileCtrl.delete)
+
 export {
   router
 }
