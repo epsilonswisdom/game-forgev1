@@ -2,6 +2,7 @@
 <%- include('./partials/nav') %>
 
 <main>
+  
   <h1>Welcome, <%= user ? user.profile.name : "Gamers" %></h1>
   <h2>If you want in sign up.</h2>
   <% if (user?.profile.avatar) { %>
