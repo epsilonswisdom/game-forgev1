@@ -98,6 +98,44 @@ function deleteProfile(req, res) {
   })
 }
 
+function addComment(req, res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    req.body.commenter = req.userr.profile._id
+    profile.comments.push(req.body)
+    profile.save()
+    .then(()=> {
+      res.redirect(`/profiles/${profile._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/profiles')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profiles')
+  })
+}
+
+function showComment(req, res) {
+  Profile.findById(req.params.id)
+  .populate([
+    {path: "owner"},
+    {path: "comments.commenter"}
+  ])
+  .then(profile => {
+    res.render('profiles/show', {
+      title: "show",
+      profile
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profiles')
+  })
+}
+
 export {
   index,
   show,
@@ -105,5 +143,6 @@ export {
   edit,
   update,
   deleteProfile as delete,
-
+  addComment,
+  showComment,
 }

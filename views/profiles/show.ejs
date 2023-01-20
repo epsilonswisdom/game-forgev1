@@ -19,6 +19,13 @@
     <button>Add Comment</button>
   </form> 
   <% } %>
+  <ul>
+    <% profile.comments?.forEach(comment => { %>
+      <li>
+        <%= comment.content %> - <%= comment.commenter.name %>
+        </li>
+    <% }) %>   
+  </ul>
 </section>
 
 <%- include('../partials/footer') %>

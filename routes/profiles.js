@@ -11,9 +11,13 @@ router.get('/:id', profileCtrl.show)
 
 router.get('/:id/edit', isLoggedIn, profileCtrl.edit)
 
+router.get('/:id', profileCtrl.show)
+
 router.put('/:id', isLoggedIn, profileCtrl.update)
 
 router.post('/', profileCtrl.create)
+
+router.post('/:id/comments',isLoggedIn, profileCtrl.addComment)
 
 router.delete('/:id', isLoggedIn, profileCtrl.delete)
 
