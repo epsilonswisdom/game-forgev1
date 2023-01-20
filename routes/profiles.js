@@ -9,6 +9,8 @@ router.get('/', profileCtrl.index)
 
 router.get('/:id', profileCtrl.show)
 
+router.get('/:id/edit', isLoggedIn, profileCtrl.edit)
+
 router.post('/', profileCtrl.create)
 
 export {

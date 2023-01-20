@@ -48,9 +48,24 @@ function create(req , res) {
   })
 }
 
+function edit(req, res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    res.render('profiles/edit', {
+      profile,
+      title: "edit"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profiles')
+  })
+}
+
 export {
   index,
   show,
   create,
+  edit,
 
 }

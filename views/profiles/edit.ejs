@@ -1,0 +1,28 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Your Profile</h1>
+  <h2>Add some details about yourself</h2>
+  <form action="/profiles/<%= profile._id %>?_method=PUT" method="POST">
+  <label>
+    Tell us about yourself:
+    <input
+      type="text"
+      name="title"
+      value="<%= profile.title  %>"
+      autocomplete="off"
+      >
+   <label>
+    Favorite Games?:
+    <input
+      type="text"
+      name="favgame"
+      value="<%= profile.favgame  %>"
+      >
+    </label>
+    <button type="submit">Edit your Info</button>   
+    </form>
+</section>
+
+<%- include('../partials/footer') %>

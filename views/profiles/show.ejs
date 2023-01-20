@@ -4,6 +4,11 @@
 <section>
 	<p> Introducing <%= profile.owner.name %>...</p>
   <h1><%= profile.name %></h1>
+  <% if (profile.owner.equals(user?.profile._id)) {
+    <a href="/profiles/<%= profile._id %>/edit">
+      <button class="edbtn">Edit Profile</button>
+    </a>  
+  <% } %> 
 
 </section>
 
