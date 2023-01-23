@@ -1,6 +1,6 @@
-# fly.toml file generated for gamer-forge on 2023-01-18T16:38:15-05:00
+# fly.toml file generated for games-forged on 2023-01-23T13:39:52-05:00
 
-app = "gamer-forge"
+app = "games-forged"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
