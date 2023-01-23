@@ -17,7 +17,6 @@ function index(req , res) {
   })
 }
 
-
 function create(req , res) {
   req.body.owner = req.user.profile._id
   Profile.create(req.body)
@@ -49,6 +48,7 @@ function show(req, res) {
     res.redirect("/")
   })
 }
+
 function edit(req, res) {
   Profile.findById(req.params.id)
   .then(profile => {
