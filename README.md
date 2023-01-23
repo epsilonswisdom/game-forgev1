@@ -33,3 +33,4 @@ Planned future enhancements.
 - [] Increase the functionality of the site and add more special features (more buttons!!)
 - [] Mobile Web adaption
 - [] Accessibility features 
+- [] Correct the pathing for Profiles and link to list of games
